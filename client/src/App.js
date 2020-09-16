@@ -10,11 +10,12 @@ import axios from 'axios';
 const App = () => {
   const [savedList, setSavedList] = useState([]);
   const [movieList, setMovieList] = useState([]);
-
+console.log(movieList)
   const getMovieList = () => {
     axios
       .get("http://localhost:5000/api/movies")
-      .then(res => setMovieList(res.data))
+      .then(res =>
+         setMovieList(res.data))
       .catch(err => console.log(err.response));
   };
 
@@ -29,6 +30,7 @@ const App = () => {
   return (
     <>
       <SavedList list={savedList} />
+
 
       <Route exact path="/">
         <MovieList movies={movieList} />

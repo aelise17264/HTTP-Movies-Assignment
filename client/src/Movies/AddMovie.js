@@ -8,40 +8,33 @@ let initialState = {
     title: '',
     director: '',
     metascore: '',
-    stars:[{
-        star1: '',
-        star2:'',
-        star3: '',}]
+    stars: []
 }
 
 
-const AddMovie = ({setMovieList, movieList}) => {
+const AddMovie = () => {
 const [film, setFilm] = useState(initialState)
 let history = useHistory();
+
 
 const handleChange = event => {
     setFilm({
         ...film,
         [event.target.name]: event.target.value
+        
     })
 }
 
-  const postMovie = (film)  => {
-      axios.post('http://localhost:5000/api/', film)
-      .then(res => {
-          console.log(res)
-          
-        // setMovieList({
-        //     ...movieList,
-        //     film: res.data
-        // })
-        // history.push('/')
-      })
-      .catch(error => {console.log('error in post')})
-  }
+
 
 const onSubmit = (event) => {
-    postMovie(film)
+   event.preventDefault()
+   axios.post('http://localhost:5000/api/movies', film)
+   .then(res => {
+       console.log(res)
+     history.push('/')
+   })
+   .catch(error => {console.log('error in post')})
 }
 
 
