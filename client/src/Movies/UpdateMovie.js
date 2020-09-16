@@ -42,10 +42,22 @@ const handleSubmit = event => {
     .then(res => {
         console.log(res)
         props.setMovieList(res.data)
-        history.push('/')
+        history.push('/movies')
     })
     .catch(error => console.log(error))
 }
+
+const handleDelete = event => {
+    // event.preventDefault();
+    axios
+    .delete(`http://localhost:5000/api/movies/${id}`, props.movie)
+    .then(res => {
+      console.log(res)
+      props.setMovieList(res.data)
+      history.push('/')
+    })
+    .catch(error => console.log(error))
+  }
 
 return(
     <div>
@@ -75,9 +87,12 @@ return(
         value={newMovie.metascore}
         />
     </label>
-    <button className='form-button'>Submit</button>
+    <button className='form-button'>Submit Changes</button>
+    
     </form>
-
+    
+    <button onClick={handleDelete}>Delete from List</button>
+    
     </div>
 
 
