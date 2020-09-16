@@ -42,7 +42,7 @@ const handleSubmit = event => {
     .then(res => {
         console.log(res)
         props.setMovieList(res.data)
-        history.push('/movies')
+        history.push('/')
     })
     .catch(error => console.log(error))
 }
@@ -87,12 +87,10 @@ return(
         value={newMovie.metascore}
         />
     </label>
-    <button className='form-button'>Submit Changes</button>
-    
-    </form>
-    
+    <button className='form-button'>Submit</button>
     <button onClick={handleDelete}>Delete from List</button>
-    
+    </form>
+
     </div>
 
 
