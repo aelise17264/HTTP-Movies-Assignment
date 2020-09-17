@@ -54,6 +54,7 @@ console.log(movieList)
       <Route path="/add-movie">
         <AddMovie 
         setMovieList={setMovieList} 
+        getMovieList={getMovieList}
         movieList={movieList}/>
       </Route>
     </>

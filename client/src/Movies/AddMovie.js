@@ -12,7 +12,7 @@ let initialState = {
 }
 
 
-const AddMovie = () => {
+const AddMovie = (props) => {
 const [film, setFilm] = useState(initialState)
 let history = useHistory();
 
@@ -33,6 +33,7 @@ const onSubmit = (event) => {
    .then(res => {
        console.log(res)
        setFilm(res.data)
+       props.getMovieList()
      history.push('/')
    })
    .catch(error => {console.log('error in post')})
