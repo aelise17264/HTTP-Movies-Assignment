@@ -39,12 +39,16 @@ console.log(movieList)
       <Route path="/movies/:id">
         <Movie 
         addToSavedList={addToSavedList}
-        setMovieList={setMovieList} />
+        setMovieList={setMovieList}
+        getMovieList={getMovieList}
+        movieList={movieList} />
       </Route>
 
       <Route path="/update-movie/:id">
         <UpdateMovie
-         setMovieList={setMovieList} />
+         movieList={movieList}
+         setMovieList={setMovieList} 
+         getMovieList={getMovieList} />
       </Route>
 
       <Route path="/add-movie">

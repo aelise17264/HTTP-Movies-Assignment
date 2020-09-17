@@ -32,6 +32,7 @@ const onSubmit = (event) => {
    axios.post('http://localhost:5000/api/movies', film)
    .then(res => {
        console.log(res)
+       setFilm(res.data)
      history.push('/')
    })
    .catch(error => {console.log('error in post')})
