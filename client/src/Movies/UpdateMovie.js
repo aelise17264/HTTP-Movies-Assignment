@@ -40,8 +40,9 @@ const handleSubmit = event => {
     axios
     .put(`http://localhost:5000/api/movies/${id}`, newMovie)
     .then(res => {
-        // console.log(res)
+         console.log(newMovie)
       props.setMovieList([...props.movieList, res.data])
+      props.getMovieList()
         history.push('/')
     })
     .catch(error => console.log(error))
